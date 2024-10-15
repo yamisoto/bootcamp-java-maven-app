@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.99'  // Updated to use maven-3.99
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/yamisoto/bootcamp-java-maven-app.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                echo 'Building the Docker image...'
+                // Add Docker build steps here, e.g., sh 'docker build -t my-app .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Add test commands here
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deployment steps here
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
