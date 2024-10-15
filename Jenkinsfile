@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Checkout code from your Git repository
-                git url: 'https://github.com/yamisoto/bootcamp-java-maven-app.git', branch: 'main'
+                git url: 'https://github.com/yamisoto/bootcamp-java-maven-app.git', branch: 'jenkins-jobs'
             }
         }
         
