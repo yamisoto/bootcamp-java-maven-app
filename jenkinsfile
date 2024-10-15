@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven-3.99'  // Updated to use maven-3.99
+        maven 'maven-3.99'  // Using maven-3.99
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yamisoto/bootcamp-java-maven-app.git'
+                git branch: 'jenkins-jobs', url: 'https://github.com/yamisoto/bootcamp-java-maven-app.git'
             }
         }
 
